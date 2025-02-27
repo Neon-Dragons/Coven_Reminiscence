@@ -4,8 +4,8 @@ var move_left = keyboard_check(ord("A"))
 var move_right = keyboard_check(ord("D"))
 var move_up = keyboard_check(ord("W"))
 var move_down = keyboard_check(ord("S"))
-var sprint = keyboard_check_pressed(vk_shift)
-var stopSprint = keyboard_check_released(vk_shift)
+var walking = keyboard_check_pressed(vk_shift)
+var stopWalking = keyboard_check_released(vk_shift)
 move_up += keyboard_check(vk_up)
 move_down += keyboard_check(vk_down)
 move_left += keyboard_check(vk_left)
@@ -23,8 +23,8 @@ if (gamepad != undefined)
 	move_down += gamepad_button_check(gamepad, gp_padd);
 	joyStickLeftX = gamepad_axis_value(gamepad, gp_axislh);
 	joyStickLeftY = gamepad_axis_value(gamepad, gp_axislv);
-	sprint += gamepad_button_check_pressed(gamepad, gp_face2)
-	stopSprint += gamepad_button_check_released(gamepad, gp_face2)
+	walking += gamepad_button_check_pressed(gamepad, gp_face2)
+	stopWalking += gamepad_button_check_released(gamepad, gp_face2)
 }
 
 xSpeed = (move_right - move_left) * moveSpeed;
@@ -49,10 +49,12 @@ x += xSpeed;
 y += ySpeed;
 
 ///Running
-if sprint {
-	moveSpeed = 3;
-}
-if stopSprint {
+if walking {
+	currentState = PlayerState.Running;
 	moveSpeed = 1.5;
+}
+if stopWalking {
+	moveSpeed = 3;
+	currentState = PlayerState.Walking;
 }
 
