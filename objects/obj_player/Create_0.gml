@@ -1,7 +1,3 @@
-enum PlayerState {
-	Running,
-	Walking,
-	Attacking,
-}
-
-currentState = PlayerState.Running;
+health = 3;
+currentState = MovementState.Running;
+currentFacing = CharacterFacing.Down;

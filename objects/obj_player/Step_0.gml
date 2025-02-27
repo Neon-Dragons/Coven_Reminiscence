@@ -45,16 +45,49 @@ if (place_meeting(x + xSpeed, y, obj_wall) == true) {
 if (place_meeting(x, y + ySpeed, obj_wall) == true) {
 	ySpeed= 0;
 }
+if (place_meeting(x + xSpeed, y, obj_caucus) == true) {
+	xSpeed= 0;
+}
+if (place_meeting(x, y + ySpeed, obj_caucus) == true) {
+	ySpeed= 0;
+}
 x += xSpeed;
 y += ySpeed;
 
+//Sprites
+if ySpeed == 0
+{
+	if xSpeed > 0
+	{
+		currentFacing = CharacterFacing.Right;
+		sprite_index = spr_player_right
+	}
+	if xSpeed < 0 {
+		currentFacing = CharacterFacing.Left;
+		sprite_index = spr_player_left
+	}	
+}
+
+if xSpeed == 0 {
+	if ySpeed > 0 {
+		currentFacing = CharacterFacing.Down;
+		sprite_index = spr_player_down
+	}
+	if ySpeed < 0 {
+		currentFacing = CharacterFacing.Up;
+		sprite_index = spr_player_up
+
+	}	
+}
+
+	
+
 ///Running
 if walking {
-	currentState = PlayerState.Running;
+	currentState = MovementState.Walking;
 	moveSpeed = 1.5;
 }
 if stopWalking {
 	moveSpeed = 3;
-	currentState = PlayerState.Walking;
+	currentState = MovementState.Running;
 }
-
