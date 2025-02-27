@@ -27,17 +27,21 @@ if (gamepad != undefined)
 	stopWalking += gamepad_button_check_released(gamepad, gp_face2)
 }
 
-xSpeed = (move_right - move_left) * moveSpeed;
-ySpeed = (move_down - move_up) * moveSpeed;
+xSpeed = (move_right - move_left)
+ySpeed = (move_down - move_up)
+
 if joyStickLeftX != 0
 {
-	xSpeed = moveSpeed * joyStickLeftX;
+	xSpeed = joyStickLeftX;
 }
 if joyStickLeftY != 0
 {
-	ySpeed = moveSpeed * joyStickLeftY;
+	ySpeed = joyStickLeftY;
 }
-
+xSpeed = clamp(xSpeed, -1, 1);
+ySpeed = clamp(ySpeed, -1, 1);
+xSpeed = xSpeed * moveSpeed;
+ySpeed = ySpeed * moveSpeed;
 ///////collisions////////////////
 if (place_meeting(x + xSpeed, y, obj_wall) == true) {
 	xSpeed= 0;
