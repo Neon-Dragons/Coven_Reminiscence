@@ -108,7 +108,7 @@ if (level >= 2 && lightningSpell && mana >= 20) {
 
 }
 
-if (fireballSpell) {
+if (fireballSpell && mana >= 10) {
 	instance_create_layer(x, y, "Instances", obj_fireball_spell);
 	audio_play_sound(snd_fireball_spell,1,false);
 	mana -= 10;
