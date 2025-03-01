@@ -4,6 +4,8 @@ var move_left = keyboard_check(ord("A"))
 var move_right = keyboard_check(ord("D"))
 var move_up = keyboard_check(ord("W"))
 var move_down = keyboard_check(ord("S"))
+var lightningSpell = keyboard_check_pressed(ord("Q"))
+var fireballSpell = keyboard_check_pressed(vk_space)
 var walking = keyboard_check_pressed(vk_shift)
 var stopWalking = keyboard_check_released(vk_shift)
 move_up += keyboard_check(vk_up)
@@ -21,10 +23,12 @@ if (gamepad != undefined)
 	move_right += gamepad_button_check(gamepad, gp_padr);
 	move_up += gamepad_button_check(gamepad, gp_padu);
 	move_down += gamepad_button_check(gamepad, gp_padd);
+	fireballSpell += gamepad_button_check_pressed(gamepad, gp_face3);
+	lightningSpell += gamepad_button_check_pressed(gamepad, gp_face4);
 	joyStickLeftX = gamepad_axis_value(gamepad, gp_axislh);
 	joyStickLeftY = gamepad_axis_value(gamepad, gp_axislv);
-	walking += gamepad_button_check_pressed(gamepad, gp_face2)
-	stopWalking += gamepad_button_check_released(gamepad, gp_face2)
+	walking += gamepad_button_check_pressed(gamepad, gp_face2);
+	stopWalking += gamepad_button_check_released(gamepad, gp_face2);
 }
 
 xSpeed = (move_right - move_left)
@@ -63,23 +67,23 @@ if ySpeed == 0
 {
 	if xSpeed > 0
 	{
-		currentFacing = CharacterFacing.Right;
 		sprite_index = spr_player_right
+		facingAngle = 0;
 	}
 	if xSpeed < 0 {
-		currentFacing = CharacterFacing.Left;
 		sprite_index = spr_player_left
+		facingAngle = 180;
 	}	
 }
 
 if xSpeed == 0 {
 	if ySpeed > 0 {
-		currentFacing = CharacterFacing.Down;
 		sprite_index = spr_player_down
+		facingAngle = 270;
 	}
 	if ySpeed < 0 {
-		currentFacing = CharacterFacing.Up;
 		sprite_index = spr_player_up
+		facingAngle = 90;
 
 	}	
 }
@@ -94,4 +98,18 @@ if walking {
 if stopWalking {
 	moveSpeed = 3;
 	currentState = MovementState.Running;
+}
+
+if (level >= 2 && lightningSpell && mana >= 20) { 
+		instance_create_layer(x ,y,"Instances", obj_lightning_spell);
+			audio_play_sound(snd_lightning_spell,1,false);
+			mana -= 20;	
+	
+
+}
+
+if (fireballSpell) {
+	instance_create_layer(x, y, "Instances", obj_fireball_spell);
+	audio_play_sound(snd_fireball_spell,1,false);
+	mana -= 10;
 }
