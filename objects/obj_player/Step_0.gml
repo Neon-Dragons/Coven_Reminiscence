@@ -100,6 +100,8 @@ if stopWalking {
 	currentState = MovementState.Running;
 }
 
+
+//Spell Attacks
 if (level >= 2 && lightningSpell && mana >= 20) { 
 		instance_create_layer(x ,y,"Instances", obj_lightning_spell);
 			audio_play_sound(snd_lightning_spell,1,false);
@@ -112,4 +114,16 @@ if (fireballSpell && mana >= 10) {
 	instance_create_layer(x, y, "Instances", obj_fireball_spell);
 	audio_play_sound(snd_fireball_spell,1,false);
 	mana -= 10;
+}
+
+if (mana != manaMax) {
+	mana += 0.05
+}
+
+//Test
+if (keyboard_check_pressed(ord("P")))
+	playerHealth -= 5
+//GameOver
+if (playerHealth <= 0) {
+	game_restart();	
 }
