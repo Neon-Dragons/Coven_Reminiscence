@@ -48,6 +48,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"gamepad_vars","path":"scripts/gamepad_vars/gamepad_vars.yy",},},
     {"id":{"name":"MovementState","path":"scripts/MovementState/MovementState.yy",},},
+    {"id":{"name":"Script3","path":"scripts/Script3/Script3.yy",},},
     {"id":{"name":"snd_axe_attack","path":"sounds/snd_axe_attack/snd_axe_attack.yy",},},
     {"id":{"name":"snd_fireball_spell","path":"sounds/snd_fireball_spell/snd_fireball_spell.yy",},},
     {"id":{"name":"snd_lightning_spell","path":"sounds/snd_lightning_spell/snd_lightning_spell.yy",},},
