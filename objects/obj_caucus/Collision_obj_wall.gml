@@ -1,2 +1,5 @@
-//hspeed *= -1
-//image_xscale *= -1
+if !detectedPlayer {
+
+	direction = direction - 100;
+	speed = moveSpeed
+}

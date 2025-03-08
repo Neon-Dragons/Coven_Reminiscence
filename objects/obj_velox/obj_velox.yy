@@ -1,7 +1,10 @@
 {
   "$GMObject":"",
   "%Name":"obj_velox",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_velox",
   "overriddenProperties":[],
@@ -26,13 +29,15 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"isFriendly","filters":[],"listItems":[],"multiselect":false,"name":"isFriendly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_velox",
-    "path":"sprites/spr_velox/spr_velox.yy",
+    "name":"spr_velox_down",
+    "path":"sprites/spr_velox_down/spr_velox_down.yy",
   },
   "spriteMaskId":null,
   "visible":true,
