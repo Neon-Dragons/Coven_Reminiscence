@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fireball",
-    "path":"sprites/spr_fireball/spr_fireball.yy",
+    "name":"spr_magic_projectile",
+    "path":"sprites/spr_magic_projectile/spr_magic_projectile.yy",
   },
   "spriteMaskId":null,
   "visible":true,

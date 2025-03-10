@@ -8,6 +8,7 @@
   "name":"obj_belliger",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_caucus","path":"objects/obj_caucus/obj_caucus.yy",},"propertyId":{"name":"moveSpeed","path":"objects/obj_caucus/obj_caucus.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_caucus","path":"objects/obj_caucus/obj_caucus.yy",},"propertyId":{"name":"enemy_health","path":"objects/obj_caucus/obj_caucus.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"40",},
   ],
   "parent":{
     "name":"Objects",

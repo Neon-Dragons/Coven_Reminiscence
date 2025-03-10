@@ -1,4 +1,11 @@
 
+
+// CHECK IF PLAYER IS DEAD
+if (playerHealth <= 0) {
+    global.game_over = true;
+}
+
+
 /////////////////Player Input///////////////
 var move_left = keyboard_check(ord("A"))
 var move_right = keyboard_check(ord("D"))
@@ -8,6 +15,10 @@ var lightningSpell = keyboard_check_pressed(ord("Q"))
 var fireballSpell = keyboard_check_pressed(vk_space)
 var walking = keyboard_check_pressed(vk_shift)
 var stopWalking = keyboard_check_released(vk_shift)
+var useSage = keyboard_check_pressed(ord("1"))
+var usePotion = keyboard_check_pressed(ord("2"))
+var pauseGame = keyboard_check_pressed(vk_escape)
+var restartGame = keyboard_check_pressed(ord("R"))
 move_up += keyboard_check(vk_up)
 move_down += keyboard_check(vk_down)
 move_left += keyboard_check(vk_left)
@@ -29,19 +40,63 @@ if (gamepad != undefined)
 	joyStickLeftY = gamepad_axis_value(gamepad, gp_axislv);
 	walking += gamepad_button_check_pressed(gamepad, gp_face2);
 	stopWalking += gamepad_button_check_released(gamepad, gp_face2);
+	useSage += gamepad_button_check_pressed(gamepad, gp_shoulderl);
+	usePotion += gamepad_button_check_pressed(gamepad, gp_shoulderr);
+	pauseGame += gamepad_button_check_pressed(gamepad, gp_start);
+	restartGame += gamepad_button_check_pressed(gamepad, gp_select);
 }
 
+// PAUSE GAME SYSTEM
+if (pauseGame) {
+    global.game_paused = !global.game_paused; // Toggle pause state
+}
+// STOP PLAYER MOVEMENT WHEN GAME IS PAUSED
+if (global.game_paused) {
+    exit; // Stops player movement if the game is paused
+}
+
+// STOP ALL MOVEMENT IF GAME IS OVER
+if (global.game_over) {
+    if (restartGame) {
+        show_debug_message("Restarting game...");
+        room_restart(); // Restart room
+        global.game_over = false;
+    }
+    exit; // Prevents further movement/actions
+}
+
+//Using Items
+if (useSage) {
+	var lostHealth = playerHealthMax - playerHealth
+	if (sages > 0 && lostHealth >= 5) {
+		audio_play_sound(snd_sage,1,false);
+		playerHealth += clamp(10, 10, lostHealth);
+		sages -= 1;
+	}
+}
+
+if (usePotion) {
+	var lostHealth = playerHealthMax - playerHealth
+	if (potions > 0 && lostHealth >= 5) {
+		audio_play_sound(snd_potion,1,false);
+		playerHealth += clamp(5, 5, lostHealth);
+		potions -= 1;
+	}
+}
 xSpeed = (move_right - move_left)
 ySpeed = (move_down - move_up)
 
-if joyStickLeftX != 0
-{
-	xSpeed = joyStickLeftX;
+///Walking
+if walking {
+	currentState = MovementState.Walking;
+	moveSpeed = 1.5;
 }
-if joyStickLeftY != 0
-{
-	ySpeed = joyStickLeftY;
+	
+if stopWalking {
+	currentState = MovementState.Running;
+	moveSpeed = 3;
 }
+
 xSpeed = clamp(xSpeed, -1, 1);
 ySpeed = clamp(ySpeed, -1, 1);
 xSpeed = xSpeed * moveSpeed;
@@ -90,15 +145,7 @@ if xSpeed == 0 {
 
 	
 
-///Running
-if walking {
-	currentState = MovementState.Walking;
-	moveSpeed = 1.5;
-}
-if stopWalking {
-	moveSpeed = 3;
-	currentState = MovementState.Running;
-}
+
 
 
 //Spell Attacks
@@ -118,12 +165,4 @@ if (fireballSpell && mana >= 10) {
 
 if (mana != manaMax) {
 	mana += 0.05
-}
-
-//Test
-if (keyboard_check_pressed(ord("P")))
-	playerHealth -= 5
-//GameOver
-if (playerHealth <= 0) {
-	game_restart();	
 }

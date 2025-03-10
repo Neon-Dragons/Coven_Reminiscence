@@ -22,7 +22,7 @@ if (instance_exists(obj_player)) {
 			//imageIndex += (playerHealthFraction > 0.25)
 			//imageIndex += (playerHealthFraction > 0.5)
 		}
-		draw_sprite(spr_heart,
+		draw_sprite(spr_heart_alt,
 			imageIndex,
 			8 + margin,9)
 		
@@ -30,4 +30,14 @@ if (instance_exists(obj_player)) {
 	}
 	margin = 0
 
+}
+
+//Items
+if (instance_exists(obj_player)) {
+	
+	draw_sprite(spr_sage_slot, 1,30,110)
+	draw_text(30,120,obj_player.sages)
+	draw_sprite(spr_potion_slot, 1, 90, 110)
+	draw_text(90,120,obj_player.potions)
+	
 }
