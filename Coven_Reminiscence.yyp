@@ -43,6 +43,8 @@
     {"id":{"name":"obj_dialogue_child1","path":"objects/obj_dialogue_child1/obj_dialogue_child1.yy",},},
     {"id":{"name":"obj_dialogue_child2","path":"objects/obj_dialogue_child2/obj_dialogue_child2.yy",},},
     {"id":{"name":"obj_dialogue_child3","path":"objects/obj_dialogue_child3/obj_dialogue_child3.yy",},},
+    {"id":{"name":"obj_dialogue_child4","path":"objects/obj_dialogue_child4/obj_dialogue_child4.yy",},},
+    {"id":{"name":"obj_dialogue_child5","path":"objects/obj_dialogue_child5/obj_dialogue_child5.yy",},},
     {"id":{"name":"obj_dialogue","path":"objects/obj_dialogue/obj_dialogue.yy",},},
     {"id":{"name":"obj_fireball_spell","path":"objects/obj_fireball_spell/obj_fireball_spell.yy",},},
     {"id":{"name":"obj_game_over","path":"objects/obj_game_over/obj_game_over.yy",},},
@@ -59,6 +61,8 @@
     {"id":{"name":"obj_trigger","path":"objects/obj_trigger/obj_trigger.yy",},},
     {"id":{"name":"obj_trigger2","path":"objects/obj_trigger2/obj_trigger2.yy",},},
     {"id":{"name":"obj_trigger3","path":"objects/obj_trigger3/obj_trigger3.yy",},},
+    {"id":{"name":"obj_trigger4","path":"objects/obj_trigger4/obj_trigger4.yy",},},
+    {"id":{"name":"obj_trigger5","path":"objects/obj_trigger5/obj_trigger5.yy",},},
     {"id":{"name":"obj_velox","path":"objects/obj_velox/obj_velox.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"rm_main_screen","path":"rooms/rm_main_screen/rm_main_screen.yy",},},
@@ -119,8 +123,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"rm_main_screen","path":"rooms/rm_main_screen/rm_main_screen.yy",},},
+    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

@@ -10,6 +10,8 @@ if (showing_dialog == false) {
 		instance_destroy();
 		obj_player.inTrigger = false;
 		global.game_paused = !global.game_paused;
+		if (obj_player.completedLevel)
+			global.game_over = true;
 		return;
 	}
 	
