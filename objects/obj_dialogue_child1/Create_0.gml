@@ -5,3 +5,4 @@ dialog.add("Write more of your stuff here.................");
 dialog.add(
 "Write your stuff here..................................................................................");
 dialog.add("blah blah blah blah blah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blah");
+dialog.add("Lilith can now shoot fireballs by pressing 'space' on keyboard or X on controller");
