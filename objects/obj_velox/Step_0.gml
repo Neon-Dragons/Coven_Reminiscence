@@ -8,7 +8,12 @@ if (global.game_over || global.game_paused) {
 // HOSTILE VELOX BEHAVIOR (MOVES TOWARD PLAYER + SHOOTS)
 if (distance_to_object(obj_player) < detectionRange && !isFriendly) {
 	mp_linear_step(obj_player.x, obj_player.y, moveSpeed, 1);
-	//Do melee or ranged attack??
+	timer--
+	if (timer <= 0) {
+		instance_create_layer(x, y, "Instances", obj_caucus_attack)
+		show_debug_message("🏹 Ranged Attack!");
+		timer = 40;
+	}
 
 }
 

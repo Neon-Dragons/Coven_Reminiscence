@@ -1,0 +1,1 @@
+audio_play_sound(snd_dark_magic,1,false);

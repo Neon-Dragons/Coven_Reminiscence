@@ -6,9 +6,12 @@ playerHealth -= playerHealthFraction
 //Mana Bar
 if (instance_exists(obj_player)) {
 	
+	if (obj_player.level > 0) {
+	
 	draw_sprite(spr_manabar_back,1,8,64)
 	draw_sprite_ext(spr_manabar,1,8,64,
 	max(0,obj_player.mana/obj_player.manaMax),1,0,c_white,1)
+	}
 }
 
 var margin = 0
@@ -35,9 +38,9 @@ if (instance_exists(obj_player)) {
 //Items
 if (instance_exists(obj_player)) {
 	
-	draw_sprite(spr_sage_slot, 1,30,110)
-	draw_text(30,120,obj_player.sages)
-	draw_sprite(spr_potion_slot, 1, 90, 110)
-	draw_text(90,120,obj_player.potions)
+	if (obj_player.sages >= 1)
+		draw_sprite(spr_sage_slot, 1,30,110)
+	if (obj_player.potions >= 1)
+		draw_sprite(spr_potion_slot, 1, 90, 110)
 	
 }

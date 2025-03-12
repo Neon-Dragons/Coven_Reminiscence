@@ -12,6 +12,7 @@ var move_right = keyboard_check(ord("D"))
 var move_up = keyboard_check(ord("W"))
 var move_down = keyboard_check(ord("S"))
 var lightningSpell = keyboard_check_pressed(ord("Q"))
+var darkMagicSpell = keyboard_check_pressed(ord("E"));
 var fireballSpell = keyboard_check_pressed(vk_space)
 var walking = keyboard_check_pressed(vk_shift)
 var stopWalking = keyboard_check_released(vk_shift)
@@ -35,6 +36,7 @@ if (gamepad != undefined)
 	move_up += gamepad_button_check(gamepad, gp_padu);
 	move_down += gamepad_button_check(gamepad, gp_padd);
 	fireballSpell += gamepad_button_check_pressed(gamepad, gp_face3);
+	darkMagicSpell += gamepad_button_check_pressed(gamepad, gp_face1);
 	lightningSpell += gamepad_button_check_pressed(gamepad, gp_face4);
 	joyStickLeftX = gamepad_axis_value(gamepad, gp_axislh);
 	joyStickLeftY = gamepad_axis_value(gamepad, gp_axislv);
@@ -62,7 +64,21 @@ if (global.game_over) {
         room_restart(); // Restart room
         global.game_over = false;
     }
+	    // Return to Main Menu
+    if (keyboard_check_pressed(ord("M")) || useSage) {
+        show_debug_message("Returning to Main Menu...");
+        room_goto(rm_main_screen); // Ensure `rm_main_screen` exists
+        global.game_over = false;
+    }
+
+	    // Exit Game
+    if (keyboard_check_pressed(ord("E")) || usePotion) {
+        show_debug_message("Exiting game...");
+        game_end();
+    }
     exit; // Prevents further movement/actions
+	
+	
 }
 
 //Using Items
@@ -157,7 +173,14 @@ if (level >= 2 && lightningSpell && mana >= 20) {
 
 }
 
-if (fireballSpell && mana >= 10) {
+if (level >= 3 && darkMagicSpell && mana >= 50) { 
+		instance_create_layer(x ,y,"Instances", obj_dark_magic_spell_radius);
+		mana -= mana;	
+	
+
+}
+
+if (level >= 1 && fireballSpell && mana >= 10) {
 	instance_create_layer(x, y, "Instances", obj_fireball_spell);
 	audio_play_sound(snd_fireball_spell,1,false);
 	mana -= 10;
