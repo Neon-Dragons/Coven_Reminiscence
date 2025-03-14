@@ -1,1 +1,1 @@
-audio_stop_sound(snd_organ_music);
+audio_stop_sound(snd_orchids);

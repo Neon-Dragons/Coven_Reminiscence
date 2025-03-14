@@ -20,7 +20,6 @@ var useSage = keyboard_check_pressed(ord("1"))
 var usePotion = keyboard_check_pressed(ord("2"))
 var pauseGame = keyboard_check_pressed(vk_escape)
 var restartGame = keyboard_check_pressed(ord("R"))
-var cheatCommand = keyboard_check_pressed(vk_numpad0)
 move_up += keyboard_check(vk_up)
 move_down += keyboard_check(vk_down)
 move_left += keyboard_check(vk_left)
@@ -48,17 +47,7 @@ if (gamepad != undefined)
 	pauseGame += gamepad_button_check_pressed(gamepad, gp_start);
 	restartGame += gamepad_button_check_pressed(gamepad, gp_select);
 }
-//Cheat Command
-if (cheatCommand) {
-	if (cheatMode) {
-		level -= 3;
-		cheatMode = false;
-	}
-	else {
-		level += 3;
-		cheatMode = true;
-	}
-}
+
 // PAUSE GAME SYSTEM
 if (pauseGame) {
     global.game_paused = !global.game_paused; // Toggle pause state
@@ -179,17 +168,14 @@ if xSpeed == 0 {
 if (level >= 2 && lightningSpell && mana >= 20) { 
 		instance_create_layer(x ,y,"Instances", obj_lightning_spell);
 			audio_play_sound(snd_lightning_spell,1,false);
-			if (!cheatMode)
-				mana -= 20;	
+			mana -= 20;	
 	
 
 }
 
 if (level >= 3 && darkMagicSpell && mana >= 50) { 
 		instance_create_layer(x ,y,"Instances", obj_dark_magic_spell_radius);
-		
-		if (!cheatMode)
-			mana -= mana;	
+		mana -= mana;	
 	
 
 }
@@ -197,10 +183,33 @@ if (level >= 3 && darkMagicSpell && mana >= 50) {
 if (level >= 1 && fireballSpell && mana >= 10) {
 	instance_create_layer(x, y, "Instances", obj_fireball_spell);
 	audio_play_sound(snd_fireball_spell,1,false);
-	if (!cheatMode)
-		mana -= 10;
+	mana -= 10;
 }
 
 if (mana != manaMax) {
 	mana += 0.05
+}
+
+// cheats :3
+if (keyboard_check_pressed(ord("L"))) { 
+    level = 3; 
+    mana = manaMax;
+    playerHealth = playerHealthMax;
+}
+
+
+if (keyboard_check_pressed(ord("P"))) {
+    var targetObject = obj_tree_willow;  
+    var targetX = targetObject.x;
+    var targetY = targetObject.y;
+    
+    x = targetX - -60; 
+    y = targetY - -60;
+
+}
+
+
+if (keyboard_check_pressed(ord("U"))) {
+    potions = 999;  
+	sage = 999;
 }

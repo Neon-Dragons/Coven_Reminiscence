@@ -18,8 +18,7 @@ if (place_meeting(x, y + 4, obj_player) == true) {
 	if (timer <= 0) {
 		instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_melee_attack)
 		timer = 30;
-		if (!obj_player.cheatMode)
-			obj_player.playerHealth -= 10;
+		obj_player.playerHealth -= 10;
 		show_debug_message("👊 Melee Attack! Player HP: " + string(obj_player.playerHealth))
 		}	
 }
@@ -28,8 +27,7 @@ if (place_meeting(x, y - 4, obj_player) == true) {
 	if (timer <= 0) {
 		instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_melee_attack)
 		timer = 30;
-		if (!obj_player.cheatMode)
-			obj_player.playerHealth -= 10;
+		obj_player.playerHealth -= 10;
 		show_debug_message("👊 Melee Attack! Player HP: " + string(obj_player.playerHealth))
 
 	}
@@ -40,8 +38,7 @@ if (place_meeting(x + 4, y, obj_player) == true) {
 	if (timer <= 0) {
 		instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_melee_attack)
 		timer = 30;
-		if (!obj_player.cheatMode)
-			obj_player.playerHealth -= 10;
+		obj_player.playerHealth -= 10;
 		show_debug_message("👊 Melee Attack! Player HP: " + string(obj_player.playerHealth))
 
 	}
@@ -52,8 +49,7 @@ if (place_meeting(x - 4, y, obj_player) == true) {
 	if (timer <= 0) {
 		instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_melee_attack)
 		timer = 30;
-		if (!obj_player.cheatMode)
-			obj_player.playerHealth -= 10;
+		obj_player.playerHealth -= 10;
 		show_debug_message("👊 Melee Attack! Player HP: " + string(obj_player.playerHealth))
 	}
 }
