@@ -15,7 +15,7 @@ var lightningSpell = keyboard_check_pressed(ord("Q"))
 var darkMagicSpell = keyboard_check_pressed(ord("E"));
 var fireballSpell = keyboard_check_pressed(vk_space)
 var walking = keyboard_check_pressed(vk_shift)
-var stopWalking = keyboard_check_released(vk_shift)
+stopWalking = keyboard_check_released(vk_shift)
 var useSage = keyboard_check_pressed(ord("1"))
 var usePotion = keyboard_check_pressed(ord("2"))
 var pauseGame = keyboard_check_pressed(vk_escape)
@@ -50,6 +50,7 @@ if (gamepad != undefined)
 
 // PAUSE GAME SYSTEM
 if (pauseGame) {
+	stopWalking = true;
     global.game_paused = !global.game_paused; // Toggle pause state
 }
 // STOP PLAYER MOVEMENT WHEN GAME IS PAUSED

@@ -75,6 +75,7 @@
     {"id":{"name":"obj_trigger5","path":"objects/obj_trigger5/obj_trigger5.yy",},},
     {"id":{"name":"obj_velox","path":"objects/obj_velox/obj_velox.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
+    {"id":{"name":"FireballParticle","path":"particles/FireballParticle/FireballParticle.yy",},},
     {"id":{"name":"rm_main_screen","path":"rooms/rm_main_screen/rm_main_screen.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"cast_magic","path":"scripts/cast_magic/cast_magic.yy",},},

@@ -65,4 +65,5 @@ if (global.game_paused && !obj_player.inTrigger) {
     draw_set_color(c_white);
     draw_text(centerX, centerY - 20, "PAUSED");
     draw_text(centerX, centerY + 20, "Press 'Escape' or Start to Resume");
+
 }
