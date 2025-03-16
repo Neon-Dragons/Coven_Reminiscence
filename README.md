@@ -31,13 +31,13 @@ RB - Potion <br />
 
 Cheatcodes - 
 
-L - Get all the powers!
-P - Teleport to the Tree
-U - Get all the potions!
+L - Get all the powers! <br />
+P - Teleport to the Tree <br />
+U - Get all the potions! <br />
 
 
 Licensing: 
 
-Orchids by Diamond and Ice (https://artlist.io/royalty-free-music/song/orchids/97283)
-Forest Rainstorm 1 by rifualk (https://freesound.org/people/rifualk/sounds/648474/)
-Magical Hit by SailorErick (https://pixabay.com/sound-effects/magical-hit-45356/)
+Orchids by Diamond and Ice (https://artlist.io/royalty-free-music/song/orchids/97283) <br />
+Forest Rainstorm 1 by rifualk (https://freesound.org/people/rifualk/sounds/648474/) <br />
+Magical Hit by SailorErick (https://pixabay.com/sound-effects/magical-hit-45356/) <br />
