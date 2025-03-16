@@ -1,0 +1,1 @@
+did_damage = false;
