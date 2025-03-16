@@ -87,3 +87,33 @@ if (!global.game_paused) {
         }
     }
 }
+
+if (instance_exists(obj_player)) {
+
+    // Only apply shader if the player is damaged or recently hit
+    if (obj_player.playerHealth < obj_player.playerHealthMax * 0.3 || global.recentlyDamaged) {
+
+        shader_set(shd_bloodstain);
+        var damageUniform = shader_get_uniform(shd_bloodstain, "damageAmount");
+
+        // Calculate how much blood overlay to show based on health
+        var damageEffect = power(1.0 - (obj_player.playerHealth / obj_player.playerHealthMax), 2.0);
+
+        // If recently damaged, boost effect for 1 second
+        if (global.recentlyDamaged) {
+            damageEffect = max(damageEffect, 0.7);
+        }
+
+        // Don't apply shader if damageEffect is 0
+        if (damageEffect > 0) {
+            shader_set_uniform_f(damageUniform, damageEffect);
+            draw_rectangle_color(0, 0, display_get_width(), display_get_height(), c_white, c_white, c_white, c_white, false);
+        }
+
+        shader_reset();
+    }
+}
+
+
+
+

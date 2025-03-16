@@ -48,39 +48,104 @@ if (gamepad != undefined)
 	restartGame += gamepad_button_check_pressed(gamepad, gp_select);
 }
 
-// PAUSE GAME SYSTEM
+// If Escape is pressed, toggle the pause menu
 if (pauseGame) {
-	stopWalking = true;
-    global.game_paused = !global.game_paused; // Toggle pause state
+    if (!global.show_pause_menu) { 
+        // Open the menu and pause the game
+        global.game_paused = true;
+        global.show_pause_menu = true;
+        global.selected_option = 0;
+    } else {
+        // Close the pause menu and resume the game
+        global.show_pause_menu = false;
+        global.game_paused = false;
+    }
 }
+
+// STOP PLAYER MOVEMENT WHEN PAUSED (but allow menu navigation)
+if (global.game_paused && !global.show_pause_menu) {
+    exit; // Stops player movement but allows menu navigation
+}
+
+// === PAUSE MENU NAVIGATION (Only When Menu is Open) ===
+if (global.show_pause_menu) {
+    if (keyboard_check_pressed(vk_down)) {
+        global.pause_selected_option = (global.pause_selected_option + 1) mod 4;
+    }
+    if (keyboard_check_pressed(vk_up)) {
+        global.pause_selected_option = (global.pause_selected_option + 3) mod 4; // Wrap-around navigation
+    }
+
+    if (keyboard_check_pressed(vk_enter)) {
+        if (global.pause_selected_option == 0) { // Resume Game
+            global.show_pause_menu = false;
+            global.game_paused = false;
+        }
+        if (global.pause_selected_option == 1) { // Save Game
+            save_game();
+        }
+        if (global.pause_selected_option == 2) { // Load Game
+            load_game();
+        }
+        if (global.pause_selected_option == 3) { // Return to Main Menu
+            room_goto(rm_main_screen);
+            global.show_pause_menu = false;
+            global.game_paused = false;
+        }
+    }
+}
+
 // STOP PLAYER MOVEMENT WHEN GAME IS PAUSED
 if (global.game_paused) {
     exit; // Stops player movement if the game is paused
 }
 
 // STOP ALL MOVEMENT IF GAME IS OVER
+// STOP ALL MOVEMENT IF GAME IS OVER
 if (global.game_over) {
-    if (restartGame) {
-        show_debug_message("Restarting game...");
-        room_restart(); // Restart room
-        global.game_over = false;
-    }
-	    // Return to Main Menu
-    if (keyboard_check_pressed(ord("M")) || useSage) {
-        show_debug_message("Returning to Main Menu...");
-        room_goto(rm_main_screen); // Ensure `rm_main_screen` exists
-        global.game_over = false;
+    // Disable player movement & actions completely
+ 
+
+    // Move up in menu
+    if (keyboard_check_pressed(vk_up)) {
+        global.gameover_selected_option = (global.gameover_selected_option - 1 + 4) mod 4; 
     }
 
-	    // Exit Game
-    if (keyboard_check_pressed(ord("E")) || usePotion) {
-        show_debug_message("Exiting game...");
-        game_end();
+    // Move down in menu
+    if (keyboard_check_pressed(vk_down)) {
+        global.gameover_selected_option = (global.gameover_selected_option + 1) mod 4;
     }
-    exit; // Prevents further movement/actions
-	
-	
+
+    // Confirm selection
+    if (keyboard_check_pressed(vk_enter)) {
+        switch (global.gameover_selected_option) {
+            case 0: // Restart from Last Checkpoint
+                show_debug_message("Restarting from Last Checkpoint...");
+                load_game();
+                global.game_over = false;
+                break;
+                
+            case 1: // Restart Level
+                show_debug_message("Restarting game...");
+                room_restart();
+                global.game_over = false;
+                break;
+                
+            case 2: // Return to Main Menu
+                show_debug_message("Returning to Main Menu...");
+                room_goto(rm_main_screen); // Ensure `rm_main_screen` exists
+                global.game_over = false;
+                break;
+                
+            case 3: // Exit Game
+                show_debug_message("Exiting game...");
+                game_end();
+                break;
+        }
+    }
+	   exit; // Ensures nothing else in this event runs
 }
+
 
 //Using Items
 if (useSage) {
@@ -213,5 +278,104 @@ if (keyboard_check_pressed(ord("P"))) {
 
 if (keyboard_check_pressed(ord("U"))) {
     potions = 999;  
-	sage = 999;
+	sages = 999;
+}
+function save_game() {
+    ini_open("savefile.ini");
+
+    // Player stats
+    ini_write_real("Player", "x", x);
+    ini_write_real("Player", "y", y);
+    ini_write_real("Player", "health", playerHealth);
+    ini_write_real("Player", "mana", mana);
+    ini_write_real("Player", "potions", potions);
+    ini_write_real("Player", "sages", sages);
+    ini_write_real("Player", "level", level);
+    
+    // Player state
+    ini_write_real("Player", "facingAngle", facingAngle);
+    ini_write_string("Player", "currentState", string(currentState));
+    ini_write_real("Player", "moveSpeed", moveSpeed);
+
+    // Game state
+    ini_write_string("Game", "room", room_get_name(room));
+    ini_write_real("Game", "game_over", global.game_over);
+    ini_write_real("Game", "game_paused", global.game_paused);
+    ini_write_real("Game", "show_pause_menu", global.show_pause_menu);
+    ini_write_real("Game", "selected_option", global.pause_selected_option);
+
+    ini_close();
+
+
+    global.save_exists = true;
+    global.saved_message = "Game Saved!";
+    global.saved_message_timer = 30; // Show for 2 seconds
+
+
+    show_debug_message("Game Saved Successfully!");
+
+    // Exit pause menu and resume game after saving
+    global.show_pause_menu = false;
+    global.game_paused = false;
+}
+
+
+function load_game() {
+    if (file_exists("savefile.ini")) {
+        ini_open("savefile.ini");
+
+        // Player stats
+        x = ini_read_real("Player", "x", x);
+        y = ini_read_real("Player", "y", y);
+        playerHealth = ini_read_real("Player", "health", playerHealth);
+        mana = ini_read_real("Player", "mana", mana);
+        potions = ini_read_real("Player", "potions", potions);
+        sages = ini_read_real("Player", "sages", sages);
+        level = ini_read_real("Player", "level", level);
+        
+        // Player state
+        facingAngle = ini_read_real("Player", "facingAngle", facingAngle);
+        var loadedState = ini_read_string("Player", "currentState", string(MovementState.Running));
+        currentState = loadedState == "Walking" ? MovementState.Walking : MovementState.Running;
+        moveSpeed = ini_read_real("Player", "moveSpeed", moveSpeed);
+
+        // Game state
+        var saved_room = ini_read_string("Game", "room", room_get_name(room));
+
+        // Ensure game is not paused or in game over after loading
+        global.game_over = false;
+        global.game_paused = false;
+        global.show_pause_menu = false;
+        global.selected_option = 0; // Reset menu selection
+
+        ini_close();
+
+        if (saved_room != room_get_name(room)) {
+            room_goto(asset_get_index(saved_room));
+        }
+
+        global.loaded_message = "Game Loaded!";
+        global.loaded_message_timer = 30;
+        show_debug_message("Game Loaded Successfully!");
+		        // ✅ NEW: Prevent auto-save for 3 seconds after loading
+        global.just_loaded = true;
+        global.just_loaded_timer = 180; // 3 seconds (60 frames per second)
+    } else {
+        show_debug_message("No Save File Found!");
+        global.loaded_message_timer = "No Save Data!";
+        global.loaded_message_timer = 30;
+    }
+}
+
+if (playerHealth < previousHealth) { // If HP dropped, trigger damage effect
+    global.recentlyDamaged = true;
+    global.damageTimer = current_time + 1000; // Effect lasts 1 second
+
+    show_debug_message("Player took damage! Shader activated.");
+}
+// ✅ Decrease the just loaded timer
+if (global.just_loaded_timer > 0) {
+    global.just_loaded_timer -= 1;
+} else {
+    global.just_loaded = false; // ✅ Allow auto-save again
 }
