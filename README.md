@@ -7,26 +7,26 @@ Play and Go!
 
 KEYS:
 
-ESC - PAUSE
-ARROWKEYS / WASD - Move around.
-SHIFT - Sneak
-SPACE- Fireballs / ADVANCE DIALOGUE
-Q - Lightning Spell
-E- Dark Magic
-1 - Sage
-2 - Potion
+ESC - PAUSE <br />
+ARROWKEYS / WASD - Move around. <br />
+SHIFT - Sneak <br />
+SPACE- Fireballs / ADVANCE DIALOGUE <br />
+Q - Lightning Spell <br />
+E- Dark Magic <br />
+1 - Sage <br />
+2 - Potion <br />
 
 CONTROLLER:
 
-START - PAUSE
-A - ADVANCE DIALOGUE
-DPAD - Move around.
-B - Sneak
-X - Fireballs
-Y - Lightning Spell
-A- Dark Magic / ADVANCE DIALOGUE
-LB - Sage
-RB - Potion
+START - PAUSE <br />
+A - ADVANCE DIALOGUE <br />
+DPAD - Move around. <br />
+B - Sneak <br />
+X - Fireballs <br />
+Y - Lightning Spell <br />
+A- Dark Magic / ADVANCE DIALOGUE <br />
+LB - Sage <br />
+RB - Potion <br />
 
 
 Cheatcodes - 
