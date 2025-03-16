@@ -9,7 +9,7 @@ if enemy_health <= 0 {
 }
 
 if (distance_to_object(obj_player) < detectionRange) {
-	mp_linear_step(obj_player.x, obj_player.y, moveSpeed, 1);
+	mp_potential_step(obj_player.x, obj_player.y, moveSpeed, 1);
 
 }
 	
@@ -53,6 +53,9 @@ if (place_meeting(x - 4, y, obj_player) == true) {
 		show_debug_message("👊 Melee Attack! Player HP: " + string(obj_player.playerHealth))
 	}
 }
+
+//Sprites
+mask_index = spr_belliger_right;
 switch (direction div 90) {
 	case 0:
 		sprite_index=spr_belliger_right;

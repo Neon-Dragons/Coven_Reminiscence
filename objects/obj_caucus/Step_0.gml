@@ -22,7 +22,7 @@ if enemy_health <= 0 {
 	instance_destroy();	
 	
 }
-
+mask_index = spr_caucus_down;
 switch (direction div 90) {
 	case 0:
 		sprite_index=spr_caucus_right;

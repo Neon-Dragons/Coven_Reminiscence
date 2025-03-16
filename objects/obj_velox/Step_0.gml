@@ -22,6 +22,7 @@ if (isFriendly) {
 	//Do stuff
 }
 
+mask_index = spr_velox_down;
 switch (direction div 90) {
 	case 0:
 		sprite_index=spr_velox_right;

@@ -118,23 +118,9 @@ xSpeed = clamp(xSpeed, -1, 1);
 ySpeed = clamp(ySpeed, -1, 1);
 xSpeed = xSpeed * moveSpeed;
 ySpeed = ySpeed * moveSpeed;
-///////collisions////////////////
-if (place_meeting(x + xSpeed, y, obj_wall) == true) {
-	xSpeed= 0;
-}
-if (place_meeting(x, y + ySpeed, obj_wall) == true) {
-	ySpeed= 0;
-}
-if (place_meeting(x + xSpeed, y, obj_caucus) == true) {
-	xSpeed= 0;
-}
-if (place_meeting(x, y + ySpeed, obj_caucus) == true) {
-	ySpeed= 0;
-}
-x += xSpeed;
-y += ySpeed;
 
 //Sprites
+mask_index = spr_player_down;
 if ySpeed == 0
 {
 	if xSpeed > 0
@@ -160,6 +146,21 @@ if xSpeed == 0 {
 	}	
 }
 
+///////collisions////////////////
+if (place_meeting(x + xSpeed, y, obj_wall) == true) {
+	xSpeed= 0;
+}
+if (place_meeting(x, y + ySpeed, obj_wall) == true) {
+	ySpeed= 0;
+}
+if (place_meeting(x + xSpeed, y, obj_caucus) == true) {
+	xSpeed= 0;
+}
+if (place_meeting(x, y + ySpeed, obj_caucus) == true) {
+	ySpeed= 0;
+}
+x += xSpeed;
+y += ySpeed;
 	
 
 
