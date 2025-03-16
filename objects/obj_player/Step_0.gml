@@ -379,3 +379,5 @@ if (global.just_loaded_timer > 0) {
 } else {
     global.just_loaded = false; // ✅ Allow auto-save again
 }
+// Ensure the minimap camera shows the entire room
+camera_set_view_pos(view_camera[1], 0, 0);
