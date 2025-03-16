@@ -19,7 +19,6 @@ E- Dark Magic <br />
 CONTROLLER:
 
 START - PAUSE <br />
-A - ADVANCE DIALOGUE <br />
 DPAD - Move around. <br />
 B - Sneak <br />
 X - Fireballs <br />
