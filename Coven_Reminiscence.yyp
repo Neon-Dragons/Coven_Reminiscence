@@ -34,6 +34,7 @@
   },
   "name":"COVEN_REMINISANCEFINAL",
   "resources":[
+    {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},},
     {"id":{"name":"fnt_title","path":"fonts/fnt_title/fnt_title.yy",},},
     {"id":{"name":"obj_belliger","path":"objects/obj_belliger/obj_belliger.yy",},},
     {"id":{"name":"obj_caucus_attack","path":"objects/obj_caucus_attack/obj_caucus_attack.yy",},},
@@ -48,6 +49,10 @@
     {"id":{"name":"obj_dialogue_child3","path":"objects/obj_dialogue_child3/obj_dialogue_child3.yy",},},
     {"id":{"name":"obj_dialogue_child4","path":"objects/obj_dialogue_child4/obj_dialogue_child4.yy",},},
     {"id":{"name":"obj_dialogue_child5","path":"objects/obj_dialogue_child5/obj_dialogue_child5.yy",},},
+    {"id":{"name":"obj_dialogue_potionFull","path":"objects/obj_dialogue_potionFull/obj_dialogue_potionFull.yy",},},
+    {"id":{"name":"obj_dialogue_potionPickup","path":"objects/obj_dialogue_potionPickup/obj_dialogue_potionPickup.yy",},},
+    {"id":{"name":"obj_dialogue_sageFull","path":"objects/obj_dialogue_sageFull/obj_dialogue_sageFull.yy",},},
+    {"id":{"name":"obj_dialogue_sagePickup","path":"objects/obj_dialogue_sagePickup/obj_dialogue_sagePickup.yy",},},
     {"id":{"name":"obj_dialogue","path":"objects/obj_dialogue/obj_dialogue.yy",},},
     {"id":{"name":"obj_draw_tiles","path":"objects/obj_draw_tiles/obj_draw_tiles.yy",},},
     {"id":{"name":"obj_fireball_spell","path":"objects/obj_fireball_spell/obj_fireball_spell.yy",},},

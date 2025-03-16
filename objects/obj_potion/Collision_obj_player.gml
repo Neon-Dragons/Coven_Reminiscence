@@ -4,6 +4,10 @@ if (obj_player.potions < 1) {
 	obj_player.potions += 1;
 }
 
-
-
-
+if (obj_hud.firstPickupPotion) {
+	obj_player.inTrigger = true;
+	obj_hud.firstPickupPotion = false;
+	global.game_paused = !global.game_paused;
+	instance_create_layer(x,y,"Instances",obj_dialogue_potionPickup);
+	
+}
