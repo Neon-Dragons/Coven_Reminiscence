@@ -1,4 +1,4 @@
-obj_player.level += 1;
+obj_player.level += 3;
 obj_player.playerHealth += 10;
 obj_player.playerHealthMax += 10;
 obj_player.inTrigger = true;

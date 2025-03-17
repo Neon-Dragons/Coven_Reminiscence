@@ -35,10 +35,14 @@
   "name":"COVEN_REMINISANCEFINAL",
   "resources":[
     {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},},
+<<<<<<< HEAD
+    {"id":{"name":"fnt_title","path":"fonts/fnt_title/fnt_title.yy",},},
+=======
     {"id":{"name":"fnt_pentz_small","path":"fonts/fnt_pentz_small/fnt_pentz_small.yy",},},
     {"id":{"name":"fnt_pentz_title","path":"fonts/fnt_pentz_title/fnt_pentz_title.yy",},},
     {"id":{"name":"fnt_title","path":"fonts/fnt_title/fnt_title.yy",},},
     {"id":{"name":"obj_ability_menu","path":"objects/obj_ability_menu/obj_ability_menu.yy",},},
+>>>>>>> origin/main
     {"id":{"name":"obj_belliger","path":"objects/obj_belliger/obj_belliger.yy",},},
     {"id":{"name":"obj_caucus_attack","path":"objects/obj_caucus_attack/obj_caucus_attack.yy",},},
     {"id":{"name":"obj_caucus","path":"objects/obj_caucus/obj_caucus.yy",},},
@@ -58,6 +62,10 @@
     {"id":{"name":"obj_dialogue_sagePickup","path":"objects/obj_dialogue_sagePickup/obj_dialogue_sagePickup.yy",},},
     {"id":{"name":"obj_dialogue","path":"objects/obj_dialogue/obj_dialogue.yy",},},
     {"id":{"name":"obj_draw_tiles","path":"objects/obj_draw_tiles/obj_draw_tiles.yy",},},
+<<<<<<< HEAD
+    {"id":{"name":"obj_end_credits","path":"objects/obj_end_credits/obj_end_credits.yy",},},
+=======
+>>>>>>> origin/main
     {"id":{"name":"obj_fireball_spell","path":"objects/obj_fireball_spell/obj_fireball_spell.yy",},},
     {"id":{"name":"obj_game_over","path":"objects/obj_game_over/obj_game_over.yy",},},
     {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
@@ -84,6 +92,10 @@
     {"id":{"name":"obj_velox","path":"objects/obj_velox/obj_velox.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"FireballParticle","path":"particles/FireballParticle/FireballParticle.yy",},},
+<<<<<<< HEAD
+    {"id":{"name":"rm_end_screen","path":"rooms/rm_end_screen/rm_end_screen.yy",},},
+=======
+>>>>>>> origin/main
     {"id":{"name":"rm_main_screen","path":"rooms/rm_main_screen/rm_main_screen.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"cast_magic","path":"scripts/cast_magic/cast_magic.yy",},},
@@ -117,7 +129,10 @@
     {"id":{"name":"spr_lightning","path":"sprites/spr_lightning/spr_lightning.yy",},},
     {"id":{"name":"spr_lightningmask","path":"sprites/spr_lightningmask/spr_lightningmask.yy",},},
     {"id":{"name":"spr_magic_projectile","path":"sprites/spr_magic_projectile/spr_magic_projectile.yy",},},
+<<<<<<< HEAD
+=======
     {"id":{"name":"spr_main_screen","path":"sprites/spr_main_screen/spr_main_screen.yy",},},
+>>>>>>> origin/main
     {"id":{"name":"spr_manabar_back","path":"sprites/spr_manabar_back/spr_manabar_back.yy",},},
     {"id":{"name":"spr_manabar","path":"sprites/spr_manabar/spr_manabar.yy",},},
     {"id":{"name":"spr_melee_attack","path":"sprites/spr_melee_attack/spr_melee_attack.yy",},},
@@ -150,6 +165,10 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_main_screen","path":"rooms/rm_main_screen/rm_main_screen.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+<<<<<<< HEAD
+    {"roomId":{"name":"rm_end_screen","path":"rooms/rm_end_screen/rm_end_screen.yy",},},
+=======
+>>>>>>> origin/main
   ],
   "templateType":"game",
   "TextureGroups":[

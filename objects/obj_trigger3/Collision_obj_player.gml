@@ -1,4 +1,4 @@
-obj_player.level += 1;
+obj_player.level += 3;
 obj_player.inTrigger = true;
 obj_player.stopWalking = true;
 global.game_paused = !global.game_paused;
