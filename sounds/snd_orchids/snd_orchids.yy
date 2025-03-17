@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_orchids.mp3",
   "type":0,
-  "volume":0.15,
+  "volume":0.1,
 }
