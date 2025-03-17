@@ -9,7 +9,7 @@ draw_set_valign(fa_middle);
 
 // Draw title (no glow, clean)
 draw_set_color(make_color_rgb(244, 199, 255)); // #F4C7FF
-draw_text(centerX, centerY - 100, "Coven Reminiscence");
+draw_text(centerX, centerY - 100, "");
 
 // --- Button Settings ---
 var button_width = 140;
