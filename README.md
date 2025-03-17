@@ -40,3 +40,6 @@ Licensing:
 Orchids by Diamond and Ice (https://artlist.io/royalty-free-music/song/orchids/97283) <br />
 Forest Rainstorm 1 by rifualk (https://freesound.org/people/rifualk/sounds/648474/) <br />
 Magical Hit by SailorErick (https://pixabay.com/sound-effects/magical-hit-45356/) <br />
+Fireball Whoosh 1 by floraphonic (https://pixabay.com/sound-effects/bottle-open-99732/) <br />
+Bottle Open by drummy (https://pixabay.com/sound-effects/bottle-open-99732/) <br />
+Hit Plant 01 by u_xjrmmgxfru (https://pixabay.com/sound-effects/search/plant/) <br />
