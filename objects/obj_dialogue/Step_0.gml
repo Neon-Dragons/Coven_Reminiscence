@@ -6,16 +6,18 @@ if (gamepad != undefined) {
 }
 
 if (!showing_dialog) {
+
     if (dialog.count() <= 0) {
         instance_destroy();
         obj_player.inTrigger = false;
-        
+
         // Only unpause when dialogue ends
         global.game_paused = false;
 
         if (obj_player.completedLevel) {
             global.game_over = true;
         }
+
         return;
     }
 
@@ -23,8 +25,17 @@ if (!showing_dialog) {
     global.game_paused = true;
 
     current_dialog = dialog.pop();
-    showing_dialog = true;
+
+    if (current_dialog != undefined) {
+        showing_dialog = true;
+        alpha = 0; // Reset alpha for fade-in
+    }
+
 } else {
+
+    // Fade alpha in smoothly
+    alpha = lerp(alpha, 1, 0.2);
+
     if (keyboard_check_released(key_next) || button_next) {
         showing_dialog = false;
         alpha = 0;
